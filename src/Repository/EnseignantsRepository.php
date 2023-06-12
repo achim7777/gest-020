@@ -39,20 +39,13 @@ class EnseignantsRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Enseignants[] Returns an array of Enseignants objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('e')
-//            ->andWhere('e.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('e.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function paginationQueryBuilder(): array
+    {
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.id', 'ASC')
+            ->getQuery()
+        ;
+    }
 
 //    public function findOneBySomeField($value): ?Enseignants
 //    {

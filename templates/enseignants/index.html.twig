@@ -1,0 +1,63 @@
+{% extends '_template.html.twig' %}
+
+{% block title %}liste des Enseignants{% endblock %}
+
+{% block body %}
+    <h3>
+        {% block pageTitle %}
+            Liste des enseignants
+        {% endblock %}
+    </h3>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Basic Datatable</h5>
+            <div class="table-responsive">
+                <table id="zero_config" class="table  table-bordered table-hover">
+                    <thead>
+                    <tr class="table table-striped">
+                        <th >Numero</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>CIN</th>
+                        <th>Email</th>
+                        <th>Asress</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for enseignants in enseignants  %}
+                        <tr>
+                            <td>{{ enseignants.id }}</td>
+                            <td>{{ enseignants.nom }}</td>
+                            <td>{{ enseignants.prenom }}</td>
+                            <td>{{ enseignants.cin }}</td>
+                            <td>{{ enseignants.email }}</td>
+                            <td>{{ enseignants.address }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr class="table table-striped">
+                        <th>Numero</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>CIN</th>
+                        <th>Email</th>
+                        <th>Asress</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            {# total items count #}
+            <h6 class="count d-flex flex-row">
+                Il y a
+                {{ enseignants.getTotalItemCount }}
+                enseignants en total
+            </h6>
+            {# display pagination #}
+            <div class="navigation d-flex justify-content-center">
+                {{ knp_pagination_render(enseignants) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,50 @@
+{% extends '_template.html.twig' %}
+
+{% block title %}Liste des modules{% endblock %}
+
+{% block body %}
+    <h3>
+        {% block pageTitle %}
+            Liste des modules
+        {% endblock %}
+    </h3>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Basic Datatable</h5>
+            <div class="table-responsive">
+                <table id="zero_config" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Nom</th>
+                        <th>filiere</th>
+                        <th>Semestre</th>
+                        <th>Enseignants</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for modules in modules %}
+                    <tr>
+                        <td>{{ modules.id }}</td>
+                        <td>{{ modules.nom }}t</td>
+                        <td>{{ modules.filieres }}</td>
+                        <td>{{ modules.semestres }}</td>
+                        <td>{{ modules.enseignants }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Nom</th>
+                        <th>filieres</th>
+                        <th>Semestre</th>
+                        <th>Enseignants</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

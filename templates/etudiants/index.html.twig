@@ -1,0 +1,53 @@
+{% extends '_template.html.twig' %}
+
+{% block title %}Liste des etudiants{% endblock %}
+
+{% block body %}
+    <h3>
+        {% block pageTitle %}
+            Liste des etudiants
+        {% endblock %}
+    </h3>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Basic Datatable</h5>
+            <div class="table-responsive">
+                <table id="zero_config" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>CNE</th>
+                        <th>Email</th>
+                        <th>Asress</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for etudiants in etudiants  %}
+                        <tr>
+                            <td>{{ etudiants.id }}</td>
+                            <td>{{ etudiants.nom }}</td>
+                            <td>{{ etudiants.prenom }}</td>
+                            <td>{{ etudiants.cne }}</td>
+                            <td>{{ etudiants.email }}</td>
+                            <td>{{ etudiants.address }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Nom</th>
+                        <th>Prenom</th>
+                        <th>CNE</th>
+                        <th>Email</th>
+                        <th>Asress</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

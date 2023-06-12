@@ -1,0 +1,41 @@
+{% extends '_template.html.twig' %}
+
+{% block title %}Liste des filieres{% endblock %}
+
+{% block body %}
+    <h3>
+        {% block pageTitle %}
+            Liste des filieres
+        {% endblock %}
+    </h3>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Basic Datatable</h5>
+            <div class="table-responsive">
+                <table id="zero_config" class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Nom</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for filieres in filieres %}
+                        <tr>
+                            <td>{{ filieres.id }}</td>
+                            <td>{{ filieres.nom }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th>Numero</th>
+                        <th>Nom</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
